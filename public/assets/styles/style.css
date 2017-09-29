@@ -1,0 +1,23 @@
+body {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    direction: rtl;
+    text-align: right;
+}
+
+.lg-space {
+    height: 0;
+    padding: 40px;
+}
+
+.md-space {
+    height: 0;
+    padding: 30px;
+}
+
+.sm-space {
+    height: 0;
+    padding: 20px;
+}
