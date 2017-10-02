@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main.main');
-});
+
 
 
 Route::get("/register" , "UserController@create");
@@ -22,3 +20,12 @@ Route::get("/logout" , "UserController@logout");
 
 
 Route::get("/result" , "ResultController@result");
+
+
+Route::get('/', function () {
+    return view('exam.exam');
+});
+
+Route::post('/ajax', function () {
+    var_dump($_POST);
+});
