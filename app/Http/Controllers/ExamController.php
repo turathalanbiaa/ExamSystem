@@ -27,8 +27,8 @@ class ExamController extends Controller
         $userId = $request->session()->get("USER_ID");
         $user = User::find($userId);
         $exams = Exam::getAllExamsForUser($user);
-        return ["exams" => $exams];
 
+        return view('main.main' , ["exams" => $exams]);
     }
 
     public function enroll(Request $request , $examId)
