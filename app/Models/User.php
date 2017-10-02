@@ -23,12 +23,12 @@ class User extends Model
     public function getRandomCode()
     {
         $randomCode = rand(10000 , 99999);
-        $user = DB::table("user")->where("Code" , $randomCode)->get();
+        $user = DB::table("user")->where("Code" , $randomCode)->first();
         while ($user)
         {
             dd($user);
             $randomCode = rand(10000 , 99999);
-            $user = DB::table("user")->where("Code" , $randomCode)->get();
+            $user = DB::table("user")->where("Code" , $randomCode)->first();
         }
         return $randomCode;
     }

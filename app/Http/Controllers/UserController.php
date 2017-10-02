@@ -19,23 +19,6 @@ class UserController
     public function create()
     {
 
-//        dd(['mysql' => [
-//            'driver' => 'mysql',
-//            'host' => env('DB_HOST', '127.0.0.1'),
-//            'port' => env('DB_PORT', '3306'),
-//            'database' => env('DB_DATABASE', 'forge'),
-//            'username' => env('DB_USERNAME', 'forge'),
-//            'password' => env('DB_PASSWORD', ''),
-//            'unix_socket' => env('DB_SOCKET', ''),
-//            'charset' => 'utf8mb4',
-//            'collation' => 'utf8mb4_unicode_ci',
-//            'prefix' => '',
-//            'strict' => true,
-//            'engine' => null,
-//        ]]);
-
-
-        dd("ali");
         $name = Input::get("name");
         $phone = Input::get("phone");
 
@@ -43,11 +26,6 @@ class UserController
         {
             return ["success" => false , "valid" => false];
         }
-
-        return Input::all();
-
-        $users = DB::table("user")->get();
-        dd($users);
 
         $user = new User();
 
