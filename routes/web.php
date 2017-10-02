@@ -22,3 +22,5 @@ Route::get("/logout" , "UserController@logout");
 
 
 Route::get("/result" , "ResultController@result");
+
+Route::get("/help" , "HelpController@help");
