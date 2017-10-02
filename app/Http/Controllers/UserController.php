@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ali
- * Date: 9/28/17
- * Time: 11:53 AM
- */
 
 namespace App\Http\Controllers;
 
@@ -18,13 +12,11 @@ class UserController
 
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'phone' => 'required'
-        ], [
-            'name.required' => "اسم الطالب الثلاثي فارغ.",
-            'phone.required' => "رقم الهاتف او البريد فارغ."
-        ]);
+        if ($request->session()->get('USER_ID'))
+        {
+            return ["success" => false , "ERROR_CODE" => "ALREADY_LOGGED_IN"];
+        }
+
 
         $name = Input::get("name");
         $phone = Input::get("phone");
@@ -33,11 +25,6 @@ class UserController
         {
             return ["success" => false , "valid" => false];
         }
-
-        return Input::all();
-
-        $users = DB::table("user")->get();
-        dd($users);
 
         $user = new User();
 
@@ -48,16 +35,20 @@ class UserController
 
         $success = $user->save();
 
-        return ["success" => $success];
+        //login current user
+        $request->session()->put("USER_ID" , $user->ID);
+
+        return ["success" => $success , "Code" => $user->Code , "ID" => $user->ID];
     }
 
-    public function login()
+    public function login(Request $request)
     {
         $code = Input::get("code");
         $user = User::where("Code" , $code)->first();
 
         if ($user)
         {
+            $request->session()->put("USER_ID" , $user->ID);
             return ["success" => true];
         }
 
@@ -65,9 +56,10 @@ class UserController
 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        //TODO
+        $request->session()->forget('USER_ID');
+        return ["success" => true];
     }
 
 }

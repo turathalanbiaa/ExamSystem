@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get("/register" , "UserController@create");
+Route::get("/login" , "UserController@login");
+Route::get("/logout" , "UserController@logout");
