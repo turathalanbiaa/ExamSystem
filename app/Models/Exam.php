@@ -9,7 +9,11 @@
 namespace App\Models;
 
 
-class Exam
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Exam extends Model
+{
+    public $table = "exam";
+    public $primaryKey = "ID";
+    public $timestamps = false;
 }

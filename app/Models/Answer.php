@@ -9,7 +9,11 @@
 namespace App\Models;
 
 
-class Answer
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Answer extends Model
+{
+    public $table = "answer";
+    public $primaryKey = "ID";
+    public $timestamps = false;
 }
