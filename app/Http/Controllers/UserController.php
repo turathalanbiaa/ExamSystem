@@ -10,14 +10,19 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class UserController
 {
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->session()->get('USER_ID'))
+        {
+            return ["success" => false , "ERROR_CODE" => "ALREADY_LOGGED_IN"];
+        }
+
 
         $name = Input::get("name");
         $phone = Input::get("phone");
@@ -39,13 +44,14 @@ class UserController
         return ["success" => $success];
     }
 
-    public function login()
+    public function login(Request $request)
     {
         $code = Input::get("code");
         $user = User::where("Code" , $code)->first();
 
         if ($user)
         {
+            $request->session()->put("USER_ID" , $user->ID);
             return ["success" => true];
         }
 
@@ -53,9 +59,10 @@ class UserController
 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        //TODO
+        $request->session()->forget('USER_ID');
+        return ["success" => true];
     }
 
 }
