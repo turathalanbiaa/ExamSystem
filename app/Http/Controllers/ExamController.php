@@ -24,12 +24,14 @@ class ExamController extends Controller
             return redirect("/login");
         }
 
-        $exams = Exam::all();
-        return ["exams" => $exams];
+        $userId = $request->session()->get("USER_ID");
+        $user = User::find($userId);
+        $exams = Exam::getAllExamsForUser($user);
 
+        return view('main.main' , ["exams" => $exams]);
     }
 
-    public function registerOnExam(Request $request , $examId)
+    public function enroll(Request $request , $examId)
     {
         if (!$this->isLogin($request))
         {
@@ -43,6 +45,11 @@ class ExamController extends Controller
         if (!$exam)
         {
             return ["success" => false , "CODE" => "EXAM_NOT_EXIST"];
+        }
+
+        if ($exam->Status == 0)
+        {
+            return ["success" => false , "CODE" => "EXAM_CLOSED"];
         }
 
         $alreadyEnrolled = $exam->didEnrolled($user);
