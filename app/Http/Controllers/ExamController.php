@@ -35,7 +35,7 @@ class ExamController extends Controller
     {
         if (!$this->isLogin($request))
         {
-            return redirect("/login");
+            return redirect("/login")->withErrors(['NOT_LOGGED_IN']);
         }
 
         $userId = $request->session()->get("USER_ID");
@@ -44,22 +44,22 @@ class ExamController extends Controller
 
         if (!$exam)
         {
-            return ["success" => false , "CODE" => "EXAM_NOT_EXIST"];
+            return redirect("/")->withErrors(['EXAM_NOT_EXIST']);
         }
 
         if ($exam->Status == 0)
         {
-            return ["success" => false , "CODE" => "EXAM_CLOSED"];
+            return redirect("/")->withErrors(['EXAM_CLOSED']);
         }
 
         $alreadyEnrolled = $exam->didEnrolled($user);
         if ($alreadyEnrolled)
         {
-            return ["success" => false , "CODE" => "ALREADY_ENROLLED"];
+            return view('exam.exam');
         }
 
-        $success = $exam->enroll($user);
-        return ["success" => $success];
+        $exam->enroll($user);
+        return view('exam.exam');
     }
 
     private function isLogin(Request $request)
