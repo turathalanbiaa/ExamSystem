@@ -32,3 +32,4 @@ Route::get('/', function () {
 Route::post('/ajax', function () {
     var_dump($_POST);
 });
+Route::get("/help" , "HelpController@help");
