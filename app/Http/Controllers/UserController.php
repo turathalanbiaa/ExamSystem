@@ -41,7 +41,10 @@ class UserController
 
         $success = $user->save();
 
-        return ["success" => $success];
+        //login current user
+        $request->session()->put("USER_ID" , $user->ID);
+
+        return ["success" => $success , "Code" => $user->Code , "ID" => $user->ID];
     }
 
     public function login(Request $request)
