@@ -9,5 +9,5 @@ class Answer extends Model
 
     protected $table = "answer";
     protected $primaryKey = "ID";
-    public $timestamps = "false";
+    public $timestamps = false;
 }
