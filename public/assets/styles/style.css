@@ -27,3 +27,19 @@ body {
     padding: 25px 15px;
     border-radius: 7px 7px;
 }
+
+.ui.celled.table tr td:first-child,
+.ui.celled.table tr th:first-child,
+.ui.celled.table tr td,
+.ui.celled.table tr th
+{
+    border-right: none;
+    border-left: 1px solid rgba(34,36,38,.1);
+}
+
+.ui.celled.table tr td:last-child,
+.ui.celled.table tr th:last-child
+{
+    border-right: none;
+    border-left: none;
+}

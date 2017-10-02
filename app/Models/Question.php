@@ -8,5 +8,5 @@ class Question extends Model
 {
     protected $table = "question";
     protected $primaryKey = "ID";
-    public $timestamps = "false";
+    public $timestamps = false;
 }
