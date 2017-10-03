@@ -19,11 +19,10 @@ Route::get("/login" , "UserController@login");
 Route::get("/logout" , "UserController@logout");
 
 Route::get("/" , "ExamController@index")->middleware('login_auth');
-Route::get("/enroll/{id}" , "ExamController@enroll")->where(['id' => '[0-9]+'])->middleware('login_auth');
-
 Route::get("/answer" , "AnswerController@answer")->middleware('login_api_auth');
 Route::get("/leave" , "AnswerController@leave")->middleware('login_api_auth');
 
+Route::get("/exam/{id}" , "ExamController@display")->middleware('login_auth' , 'exam_check');
 
 Route::get("/result" , "ResultController@result");
 
@@ -35,6 +34,7 @@ Route::get("/result" , "ResultController@result");
 //});
 
 Route::get('/exam', function () {return view('exam.exam');});
+
 Route::post('/sendAnswer');
 Route::post('/leaveQuestion');
 

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Exam;
+use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,28 +24,12 @@ class ExamController extends Controller
         return view('main.main' , ["exams" => $exams]);
     }
 
-    public function enroll(Request $request , $examId)
+    public function display(Request $request)
     {
         $user = $request->query('currentUser'); /* @var $user User */
-        $exam  = Exam::find($examId);
-
-        if (!$exam)
-        {
-            return redirect("/")->withErrors(['EXAM_NOT_EXIST']);
-        }
-        if ($exam->Status == 0)
-        {
-            return redirect("/")->withErrors(['EXAM_CLOSED']);
-        }
-
-        $alreadyEnrolled = $exam->didEnrolled($user);
-        if ($alreadyEnrolled)
-        {
-            return view('exam.exam')->withErrors(['ALREADY_ENROLLED']);
-        }
-
-        $exam->enroll($user);
-        return view('exam.exam');
+        $exam = $request->query("exam"); /* @var $exam Exam */
+        $questionWithAnswers = Question::getQuestionsWithAnswersForUser($user , $exam->ID);
+        return $questionWithAnswers;
     }
 
 }
