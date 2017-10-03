@@ -7,14 +7,14 @@
     <div class="ui form">
 
         <input type="hidden" name="_token" value="{{csrf_token()}}">
-        <input type="hidden" name="question_ID" value="{{$question->ID}}">
+        <input type="hidden" name="question_ID" value="{{$question->QuestionID}}">
 
-        <div id="question_{{$question->ID}}" class="grouped fields">
+        <div id="question_{{$question->QuestionID}}" class="grouped fields">
 
-            <?php $options = json_decode($question->Options) ?>
+            <?php $options = json_decode($question->Options); ?>
 
                 @foreach($options as $option)
-                    @include('exam.option' , ["question" => $question , "option" => $option])
+                    @include('exam.option' , ["questionId" => $question->QuestionID , "option" => $option])
                 @endforeach
         </div>
 

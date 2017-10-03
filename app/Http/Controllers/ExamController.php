@@ -29,7 +29,7 @@ class ExamController extends Controller
         $user = $request->query('currentUser'); /* @var $user User */
         $exam = $request->query("exam"); /* @var $exam Exam */
         $questionWithAnswers = Question::getQuestionsWithAnswersForUser($user , $exam->ID);
-        return $questionWithAnswers;
+        return view("exam.exam" , ["questions" => $questionWithAnswers]);
     }
 
 }
