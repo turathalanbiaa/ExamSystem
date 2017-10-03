@@ -25,7 +25,7 @@ class LoginAuth
 
         $currentUser = $this->getCurrentUser($userId);
         if (!$currentUser)
-            return false;
+            return redirect("/login");
 
         $request->merge(["currentUser" => $currentUser]);
 

@@ -25,9 +25,9 @@ class LoginAPIAuth
 
         $currentUser = $this->getCurrentUser($userId);
         if (!$currentUser)
-            return false;
+            return ["success" => false];
 
-        $request->merge(["currentUser" => $currentUser]);
+        $request->merge(["currentUser" => $currentUser , "x"=>3]);
 
         return $next($request);
     }

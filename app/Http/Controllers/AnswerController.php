@@ -19,11 +19,12 @@ class AnswerController
 
     public function answer(Request $request)
     {
-
-        $user = $request->query('currentUser'); /* @var $user User */
+        $user = Input::get('currentUser'); /* @var $user User */
 
         $questionId = Input::get("questionId");
         $answerValue = Input::get("answer");
+
+
 
         if (empty($answerValue))
         {
@@ -31,10 +32,12 @@ class AnswerController
         }
 
         $answer = Answer::where("Question_ID" , $questionId)->where("User_ID" , $user->ID)->first();
+
         if (!$answer)
         {
             $answer = new Answer();
         }
+
 
         $answer->User_ID = $user->ID;
         $answer->Answer = $answerValue;
@@ -47,7 +50,7 @@ class AnswerController
 
     public function leave(Request $request)
     {
-        $user = $request->query('currentUser'); /* @var $user User */
+        $user = Input::get('currentUser'); /* @var $user User */
         $questionId = Input::get("questionId");
 
         $answer = Answer::where("Question_ID" , $questionId)->where("User_ID" , $user->ID)->first();

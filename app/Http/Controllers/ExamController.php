@@ -13,6 +13,7 @@ use App\Models\Exam;
 use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 
 class ExamController extends Controller
@@ -26,8 +27,9 @@ class ExamController extends Controller
 
     public function display(Request $request)
     {
-        $user = $request->query('currentUser'); /* @var $user User */
-        $exam = $request->query("exam"); /* @var $exam Exam */
+
+        $user = Input::get('currentUser'); /* @var $user User */
+        $exam = Input::get("exam"); /* @var $exam Exam */
         $questionWithAnswers = Question::getQuestionsWithAnswersForUser($user , $exam->ID);
         return view("exam.exam" , ["questions" => $questionWithAnswers]);
     }

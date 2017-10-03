@@ -12,9 +12,11 @@ $("button[data-action='sendAnswer']").click(function ()
         type: "POST",
         url: '/answer',
         data: {questionId: questionId, answer: answer, _token:_token},
-        dataType: "html",
-        success: function( data ) {
-            console.log(data);
+        success: function( osm ) {
+            console.log(osm);
+        },
+        errors: function( osm ) {
+            console.log(osm);
         }
     });
 });
