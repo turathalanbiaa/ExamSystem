@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 02, 2017 at 12:25 PM
+-- Generation Time: Oct 03, 2017 at 12:17 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `turathexam`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `answer`
+--
+
+DROP TABLE IF EXISTS `answer`;
+CREATE TABLE IF NOT EXISTS `answer` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `User_ID` int(11) NOT NULL,
+  `Question_ID` int(11) NOT NULL,
+  `Answer` varchar(100) NOT NULL,
+  `Time` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`ID`, `User_ID`, `Question_ID`, `Answer`, `Time`) VALUES
+(3, 1, 1, 'صح', '2017-10-03 12:10:03');
 
 -- --------------------------------------------------------
 
@@ -91,26 +114,33 @@ CREATE TABLE IF NOT EXISTS `question` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(500) NOT NULL,
   `Options` text NOT NULL,
-  `Answer` varchar(100) NOT NULL,
-  `CategoryType` int(11) NOT NULL,
+  `CorrectAnswer` text NOT NULL,
+  `Category` int(11) NOT NULL,
   `Exam_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `student_answer`
+-- Dumping data for table `question`
 --
 
-DROP TABLE IF EXISTS `student_answer`;
-CREATE TABLE IF NOT EXISTS `student_answer` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `User_ID` int(11) NOT NULL,
-  `Question_ID` int(11) NOT NULL,
-  `Answer_ID` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+INSERT INTO `question` (`ID`, `Title`, `Options`, `CorrectAnswer`, `Category`, `Exam_ID`) VALUES
+(1, 'البحث في العقيدة ضرورة لابد منها يستهدف معرفة مبدأ الانسانية ومصيرها. ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(2, 'الاعتقاد من وظائف الروح ولا علاقة له بالعمل سواء كان موافقاً له او لا . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(3, 'المعرفة هي مجموعة الاعتقادات الراسخة في القلب . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(4, 'دفع الخوف واجب شرعي.', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(5, 'ليس كل العقلاء والاتجاهات يؤمنون بالقانون الأخلاقي القائل بوجوب شكر المنعم .', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(6, 'عن ابي عبد ا... (عليه السلام) قال:\" اياك وخصلتين ففيهما هلك من هلك , إياك ان تفتي الناس برأيك او تدين بما لا تعلم . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'صح', 1, 1),
+(7, 'الصفة هي الامارة بذات الموصوف الذي يعرف بها.', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(8, 'العالم هو المنكشفة له الاشياء بحيث تكون حاضرة غير غائبة عنه. ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(9, 'أصول الدين كالنبوة والامامة والمعاد لا تتوقف على العدل الألهي . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(10, 'من شرائط التكليف قدرة المكلف على إنجاز التكليف . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(11, 'الجاهل القاصر عن تحصيل العلم  بالتكليف معذور عند ا... تعالى. ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(12, 'نعتقد أنه تعالى لابد أن يكلف عباده ويسنَّ لهم الشرائع وما فيه صلاحهم وخيرهم.', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(13, 'انه تعالى لا  مصلحة له و لا منفعة في تكليفنا بالواجبات ونهينا عن فعل المحرمات . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(14, 'قال المجبرة أن الفاعل الحقيقي هو ا... وانما تنسب الافعال الى البشر لأنهم محلها . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(15, 'النبي هو الانسان المخبر عن ا... تعالى بغير واسطة بشر . ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1),
+(16, 'إمام هذا العصر هو الثاني عشر من أهل البيت (عليهم السلام) وهو الحجة المولود سنة 250 هـ', '[\r\n\"صح\",\r\n\"خطأ\"\r\n]', 'answer 1', 1, 1);
 
 -- --------------------------------------------------------
 
