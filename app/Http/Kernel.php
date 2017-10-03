@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ExamCheck;
 use App\Http\Middleware\LoginAPIAuth;
 use App\Http\Middleware\LoginAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'login_auth' => LoginAuth::class ,
-        "login_api_auth" => LoginAPIAuth::class
+        "login_api_auth" => LoginAPIAuth::class ,
+        "exam_check" => ExamCheck::class
     ];
 }
