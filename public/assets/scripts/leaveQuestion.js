@@ -8,7 +8,7 @@ $("button[data-action='leaveQuestion']").click(function ()
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: '/leave',
         data: {questionId: questionId, _token:_token},
         success: function( msg ) {

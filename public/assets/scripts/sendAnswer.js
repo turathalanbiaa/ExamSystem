@@ -9,10 +9,12 @@ $("button[data-action='sendAnswer']").click(function ()
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: '/answer',
         data: {questionId: questionId, answer: answer, _token:_token},
-        success: function( msg ) {
+        dataType: "html",
+        success: function( data ) {
+            console.log(data);
         }
     });
 });
