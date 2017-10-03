@@ -14,7 +14,7 @@
         </div>
 
         <div class="column">
-            <h2 class="ui top attached center aligned black inverted header">إختر الاجابة الصحيحة ( أجب عن 12 فرع فقط ).</h2>
+            <h2 class="ui top attached center aligned black inverted header">إختر الاجابة الصحيحة ( أجب عن 25 فرع فقط ).</h2>
             <div class="ui attached segment">
 
                 @include("exam.questions")

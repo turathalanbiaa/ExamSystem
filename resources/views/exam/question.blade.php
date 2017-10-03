@@ -16,7 +16,6 @@
                 @foreach($options as $option)
                     @include('exam.option' , ["question" => $question , "option" => $option])
                 @endforeach
-
         </div>
 
         <div class="field" style="text-align: right;">
