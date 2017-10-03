@@ -58,3 +58,26 @@ body {
     right: -1em;
     left: 0;
 }
+
+.ui.radio.checkbox label
+{
+    padding-right: 1.85714em;
+    padding-left: 0;
+}
+
+.ui.radio.checkbox label:before,
+.ui.radio.checkbox label:after
+{
+    right: 0;
+}
+
+.grouped.fields
+{
+    text-align: right;
+    margin-right: 25px !important;
+    padding-bottom: 10px !important;
+}
+
+.ui.attached.segment>.ui.segment {
+    margin-bottom: 25px;
+}
