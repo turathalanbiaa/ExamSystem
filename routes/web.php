@@ -25,11 +25,9 @@ Route::get("/result" , "ResultController@result");
 
 
 
-Route::get('/', function () {
-    return view('exam.exam');
-});
+Route::get('/exam', function () {return view('exam.exam');});
+Route::post('/sendAnswer');
+Route::post('/leaveQuestion');
 
-Route::post('/ajax', function () {
-    var_dump($_POST);
-});
+
 Route::get("/help" , "HelpController@help");
