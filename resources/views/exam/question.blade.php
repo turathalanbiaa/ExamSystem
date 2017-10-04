@@ -19,8 +19,8 @@
         </div>
 
         <div class="field" style="text-align: right;">
-            <button type="submit" data-action="sendAnswer" class="ui green big button">ارسال</button>
-            <button type="submit" data-action="leaveQuestion" class="ui red big button">ترك السؤال</button>
+            <button type="submit" data-action="sendAnswer" class="ui green big button">حفظ</button>
+            <button type="submit" data-action="leaveQuestion" class="ui red big button">ترك</button>
         </div>
 
     </div>

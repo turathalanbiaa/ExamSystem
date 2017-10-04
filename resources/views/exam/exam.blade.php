@@ -11,7 +11,10 @@
 
             <div class="ui segment">
                 <div class="ui hidden divider"></div>
-                <h2 class="ui center aligned header"><span>امتحان درس</span><span>{{$exam->Name}}</span></h2>
+                <div>
+                    <h2 class="ui center aligned header"><span>امتحان درس</span><span>{{$exam->Name}}</span></h2>
+                    <a href="/" class="ui large blue button">رجوع</a>
+                </div>
                 <div class="ui hidden divider"></div>
             </div>
         </div>
@@ -19,7 +22,7 @@
         @include("exam.questions")
 
         <div class="column">
-            <a href="/finish/$exam->ID" class="ui big green button">انهاء الامتحان</a>
+            <a href="/result/{{$exam->ID}}" class="ui big green button">انهاء الامتحان</a>
             <div class="md-space"></div>
         </div>
 

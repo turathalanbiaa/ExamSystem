@@ -8,6 +8,11 @@ $("button[data-action='sendAnswer']").click(function ()
     var answer = $(this).parent().parent().find('input[name=answer-'+questionId+']:checked').val();
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
+    var checkbox = $(this).parent().parent().find(".ui.radio.checkbox");
+
+    var button = $(this);
+    button.addClass("disabled loading");
+
     $.ajax({
         type: "POST",
         url: '/answer',
@@ -18,17 +23,16 @@ $("button[data-action='sendAnswer']").click(function ()
             {
                 var text = "لم تقم باختيار اي الجواب";
                 snackbar(text,3000,"warning");
+                checkbox.checkbox('uncheck');
             }
 
-            if (result['success'] == true)
-            {
-                var text = "تم ارسال الجواب";
-                snackbar(text,3000,"success");
-            }
+            button.removeClass("disabled loading");
         },
         errors: function() {
             var text = "لم يتم ارسال الجواب";
             snackbar(text,3000,"error");
+            checkbox.checkbox('uncheck');
+            button.removeClass("disabled loading");
         }
     });
 });

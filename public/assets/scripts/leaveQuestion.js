@@ -7,10 +7,18 @@ $("button[data-action='leaveQuestion']").click(function ()
     var questionId = $(this).parent().parent().find('input[name=question_ID]:hidden').val();
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
+    var checkbox = $(this).parent().parent().find(".ui.radio.checkbox");
+
+    var button = $(this);
+    button.addClass("disabled loading");
+
+
+
     $.ajax({
         type: "POST",
         url: '/leave',
         data: {questionId: questionId, _token:_token},
+        datatype : 'json' ,
         success: function( result ) {
             if (result["success"] == false)
             {
@@ -18,15 +26,17 @@ $("button[data-action='leaveQuestion']").click(function ()
                 snackbar(text,3000,"warning");
             }
 
-            if (result['success'] == true)
+            if (result.success == true)
             {
-                var text = "تم ترك الجواب";
-                snackbar(text,3000,"success");
+                checkbox.checkbox('uncheck');
             }
+
+            button.removeClass("disabled loading");
         },
         errors: function() {
             var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
             snackbar(text,3000,"error");
+            button.removeClass("disabled loading");
         }
     });
 });
