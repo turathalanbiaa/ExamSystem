@@ -1,5 +1,5 @@
 <?php
-namespace App\Commands;
+namespace App\Business;
 use App\Enums\QuestionCategory;
 
 /**
@@ -7,7 +7,9 @@ use App\Enums\QuestionCategory;
  * User: ali
  * Date: 10/3/17
  * Time: 2:30 PM
- * @property array questions
+ * @property array $answers
+ * @property int optionCount
+ * @property int trueAndFalseCount
  */
 
 class CalculateResult
@@ -16,18 +18,18 @@ class CalculateResult
 
     /**
      * CalculateResult constructor.
-     * @param $questions array
+     * @param $answers array
      * @param $optionCount
      * @param $trueAndFalseCount
      */
-    public function __construct($questions , $optionCount , $trueAndFalseCount)
+    public function __construct($answers , $optionCount , $trueAndFalseCount)
     {
-        $this->questions = $questions;
+        $this->answers = $answers;
         $this->optionCount = $optionCount;
         $this->trueAndFalseCount = $trueAndFalseCount;
     }
 
-    public function execute()
+    public function getMyResult()
     {
         $questions = $this->separate();
         $optionsQuestions = $questions[QuestionCategory::OPTIONS];
@@ -41,7 +43,7 @@ class CalculateResult
         $options = [];
         $trueOrFalse = [];
 
-        foreach ($this->questions as $question)
+        foreach ($this->answers as $question)
         {
             if ($question->Category == QuestionCategory::OPTIONS)
                 $options[] = $question;

@@ -20,7 +20,6 @@
             margin-left: 0.5em;
         }
         .masthead h1.ui.header {
-            margin-top: 3em;
             margin-bottom: 0em;
             font-size: 4em;
             font-weight: normal;
@@ -73,63 +72,34 @@
     <script src="{{asset('assets/scripts/jquery.min.js')}}"></script>
     <script src="{{asset('assets/scripts/semantic.js')}}"></script>
 
-    <script>
-        $(document)
-            .ready(function() {
-
-                // fix menu when passed
-                $('.masthead')
-                    .visibility({
-                        once: false,
-                        onBottomPassed: function() {
-                            $('.fixed.menu').transition('fade in');
-                        },
-                        onBottomPassedReverse: function() {
-                            $('.fixed.menu').transition('fade out');
-                        }
-                    })
-                ;
-
-                // create sidebar and attach to menu open
-                $('.ui.sidebar')
-                    .sidebar('attach events', '.toc.item')
-                ;
-
-            })
-        ;
-    </script>
 </head>
+
 <body>
-
-
 
 <!-- Page Contents -->
 <div class="pusher">
 
     @yield('result')
 
-
     <div class="ui vertical stripe quote segment">
         <div class="ui equal width stackable internally celled grid">
+
             <div class="center aligned row">
+
                 <div class="column">
                     <h3>نأمل ان يكون اداء الامتحان كان بشكل سهل </h3>
                     <p>لا داعي ان تتكلف عناء الحضور في قاعة إمتحانية حقيقية.. نحن وفرنا عليك الجهد والوقت وقمنا بإنشاء قاعة إمتحانية إفتراضية من خلالها نمتحن طلبتنا الأعزاء وجعلنا الرقيب ضميرهم الحي.</p>
                 </div>
 
 
-                    <div class="column">
-
-                        <p>                    نحن لا نقيدك بأستخدام جهاز معين للوصول الى موقعنا ومحتواه بل يمكنك اختيار ما يناسبك من الأجهزة (كومبيوتر أو جهاز لوحي أو موبايل) – وجميعها ستجد فيها سهولة في الوصول الى موقعنا.</p>
-
+                <div class="column">
+                    <p>                    نحن لا نقيدك بأستخدام جهاز معين للوصول الى موقعنا ومحتواه بل يمكنك اختيار ما يناسبك من الأجهزة (كومبيوتر أو جهاز لوحي أو موبايل) – وجميعها ستجد فيها سهولة في الوصول الى موقعنا.</p>
                 </div>
+
             </div>
+
         </div>
     </div>
-
-
-
-
 
 </div>
 

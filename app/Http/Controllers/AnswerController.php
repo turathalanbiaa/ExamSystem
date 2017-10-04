@@ -17,14 +17,12 @@ use Illuminate\Support\Facades\Input;
 class AnswerController
 {
 
-    public function answer(Request $request)
+    public function answer()
     {
         $user = Input::get('currentUser'); /* @var $user User */
 
         $questionId = Input::get("questionId");
         $answerValue = Input::get("answer");
-
-
 
         if (empty($answerValue))
         {
@@ -38,7 +36,6 @@ class AnswerController
             $answer = new Answer();
         }
 
-
         $answer->User_ID = $user->ID;
         $answer->Answer = $answerValue;
         $answer->Question_ID = $questionId;
@@ -48,7 +45,7 @@ class AnswerController
         return ["success" => $success];
     }
 
-    public function leave(Request $request)
+    public function leave()
     {
         $user = Input::get('currentUser'); /* @var $user User */
         $questionId = Input::get("questionId");
