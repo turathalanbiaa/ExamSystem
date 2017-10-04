@@ -30,6 +30,12 @@
         </div>
 
         <div class="column">
+            <div class="ui fluid inverted red segment">
+                <div style="margin-top: 3px;" class="ui right aligned large header">يجب عليك حفظ الرقم الامتحاني</div>
+            </div>
+        </div>
+
+        <div class="column">
             <table class="ui right aligned large celled table">
                 <thead>
                 <tr>

@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get("/login" , "UserController@showLogin");
 Route::get("/register" , "UserController@showRegister");
 Route::post("/register" , "UserController@create");

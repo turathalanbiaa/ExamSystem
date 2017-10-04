@@ -7,22 +7,22 @@
 @section("content")
     <div class="ui center aligned one column grid">
         <div class="column">
+            <div class="ui hidden divider"></div>
+
             <div class="ui segment">
-                <h2 class="ui right aligned  header"><span>امتحان درس</span><span>$exam->Name</span></h2>
-                <div class="sm-space"></div>
+                <div class="ui hidden divider"></div>
+                <h2 class="ui center aligned header"><span>امتحان درس</span><span>{{$exam->Name}}</span></h2>
+                <div class="ui hidden divider"></div>
             </div>
         </div>
+
+        @include("exam.questions")
 
         <div class="column">
-            <h2 class="ui top attached center aligned black inverted header">إختر الاجابة الصحيحة ( أجب عن 25 فرع فقط ).</h2>
-            <div class="ui attached segment">
-
-                @include("exam.questions")
-
-                <a href="/finish/$exam->ID" class="ui big green button">انهاء الامتحان</a>
-            </div>
-
+            <a href="/finish/$exam->ID" class="ui big green button">انهاء الامتحان</a>
+            <div class="md-space"></div>
         </div>
+
     </div>
 
     <div id="my-custom-snackbar"></div>
