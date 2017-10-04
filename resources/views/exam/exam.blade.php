@@ -19,16 +19,20 @@
 
                 @include("exam.questions")
 
+                <a href="/finish/$exam->ID" class="ui big green button">انهاء الامتحان</a>
             </div>
 
         </div>
     </div>
+
+    <div id="my-custom-snackbar"></div>
 @endsection
 
 @section("script")
     <script>
         $('.ui.radio.checkbox').checkbox();
     </script>
+    <script src="{{asset("assets/scripts/snackbar.js")}}"></script>
     <script src="{{asset("assets/scripts/sendAnswer.js")}}"></script>
     <script src="{{asset("assets/scripts/leaveQuestion.js")}}"></script>
 @endsection
