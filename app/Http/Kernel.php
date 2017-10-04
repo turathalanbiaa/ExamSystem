@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AnswerGuard;
 use App\Http\Middleware\ExamCheck;
 use App\Http\Middleware\LoginAPIAuth;
 use App\Http\Middleware\LoginAuth;
@@ -62,6 +63,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'login_auth' => LoginAuth::class ,
         "login_api_auth" => LoginAPIAuth::class ,
-        "exam_check" => ExamCheck::class
+        "exam_check" => ExamCheck::class ,
+        "answer_guard" => AnswerGuard::class
     ];
 }
