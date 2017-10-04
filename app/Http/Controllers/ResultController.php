@@ -15,7 +15,6 @@ class ResultController extends Controller
 
     public function result($examId)
     {
-        return view('result.result' , ["examination" => null]);
 
         $user = Input::get('currentUser'); /* @var $user User */
         $examination = Exam::getUserExamination($user , $examId);
@@ -35,7 +34,6 @@ class ResultController extends Controller
         if ($examination->FinishStatus == FinishStatus::NOT_FINISH)
             return $this->finish($examination->ID);
 
-
         return view('result.result' , ["examination" => $examination]);
     }
 
@@ -48,8 +46,10 @@ class ResultController extends Controller
             return redirect("/");
 
         $answers = Answer::getUserAnswers($user , $exam->ID);
-        $resultCalculator = new CalculateResult($answers , $exam->CategoryTow , $exam->CategoryOne);
+
+        $resultCalculator = new CalculateResult($answers , $exam->CategoryTwo , $exam->CategoryOne);
         $mark = $resultCalculator->getMyResult();
+
         $exam->finish($user , $mark);
         return $this->result($examId);
     }

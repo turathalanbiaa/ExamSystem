@@ -9,11 +9,11 @@
 
             <h2> : نتيجة امتحانك هي </h2>
 
-            <h1 class="ui center aligned inverted test button header" style="padding: 20px;">85</h1>
+            <h1 class="ui center aligned inverted test button header" style="padding: 20px;">{{$examination->Mark}}</h1>
 
             <br>
 
-            <h1>ناجح</h1>
+            <h1>{{$examination->Mark >= 50 ? "ناجح" : "راسب"}}</h1>
 
         </div>
 

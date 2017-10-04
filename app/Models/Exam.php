@@ -36,11 +36,21 @@ class Exam extends Model
         return false;
     }
 
+    public function getFinishState(User $user)
+    {
+        $enrollment = ExamEnrollment::where("Exam_ID" , $this->ID)->where("User_ID" , $user->ID)->first();
+        if (!$enrollment)
+            return null;
+
+        return $enrollment->Status;
+    }
+
     public function finish(User $user , $mark)
     {
         $enrollment = ExamEnrollment::where("Exam_ID" , $this->ID)->where("User_ID" , $user->ID)->first();
         $enrollment->Status = 1;
         $enrollment->Mark = $mark;
+        $enrollment->save();
     }
 
     public static function getAllExamsForUser(User $user)

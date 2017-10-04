@@ -18,10 +18,10 @@ Route::post("/login" , "UserController@login");
 Route::get("/logout" , "UserController@logout");
 
 Route::get("/" , "ExamController@index")->middleware('login_auth');
-Route::middleware('login_api_auth')->post("/answer" , "AnswerController@answer");
-Route::post("/leave" , "AnswerController@leave")->middleware('login_api_auth');
+Route::post("/answer" , "AnswerController@answer")->middleware('login_api_auth' , 'answer_guard');
+Route::post("/leave" , "AnswerController@leave")->middleware('login_api_auth' , 'answer_guard');
 Route::get("/exam/{id}" , "ExamController@display")->middleware('login_auth' , 'exam_check');
 
-Route::get("/result/{id}" , "ResultController@result");
-Route::get("/help" , "HelpController@help");
+Route::get("/result/{id}" , "ResultController@result")->middleware('login_auth');;
+//Route::get("/help" , "HelpController@help");
 
