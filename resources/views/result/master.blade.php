@@ -56,6 +56,10 @@
             padding: 5em 0em;
         }
 
+        .ui.celled.grid > .row > .column
+        {
+            box-shadow : none;
+        }
 
 
         @media only screen and (max-width: 700px) {

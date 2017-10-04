@@ -22,7 +22,7 @@ class ExamController extends Controller
     {
         $user = $request->query('currentUser'); /* @var $user User */
         $exams = Exam::getAllExamsForUser($user);
-        return view('main.main' , ["exams" => $exams]);
+        return view('main.main' , ["exams" => $exams , "user" => $user]);
     }
 
     public function display(Request $request)

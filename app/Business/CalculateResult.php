@@ -69,7 +69,7 @@ class CalculateResult
             }
 
             $question = $trueAndFalseQuestions[$counter];
-            if (strcmp($question->Answer , $question->UserAnswer) == 0)
+            if (strcmp(trim($question->Answer) , trim($question->UserAnswer)) == 0)
             {
                 $grade = $grade + 4;
             }
@@ -83,7 +83,7 @@ class CalculateResult
             }
 
             $question = $optionsQuestions[$counter];
-            if (strcmp($question->Answer , $question->UserAnswer) == 0)
+            if (strcmp(trim($question->Answer) , trim($question->UserAnswer)) == 0)
             {
                 $grade = $grade + 4;
             }

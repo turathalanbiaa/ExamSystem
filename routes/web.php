@@ -12,10 +12,10 @@
 */
 
 
-
-
-Route::get("/register" , "UserController@create");
-Route::get("/login" , "UserController@login");
+Route::get("/login" , "UserController@showLogin");
+Route::get("/register" , "UserController@showRegister");
+Route::post("/register" , "UserController@create");
+Route::post("/login" , "UserController@login");
 Route::get("/logout" , "UserController@logout");
 
 Route::get("/" , "ExamController@index")->middleware('login_auth');
@@ -25,3 +25,4 @@ Route::get("/exam/{id}" , "ExamController@display")->middleware('login_auth' , '
 
 Route::get("/result/{id}" , "ResultController@result");
 Route::get("/help" , "HelpController@help");
+
