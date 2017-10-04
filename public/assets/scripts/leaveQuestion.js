@@ -11,7 +11,22 @@ $("button[data-action='leaveQuestion']").click(function ()
         type: "POST",
         url: '/leave',
         data: {questionId: questionId, _token:_token},
-        success: function( msg ) {
+        success: function( result ) {
+            if (result["success"] == false)
+            {
+                var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
+                snackbar(text,3000,"warning");
+            }
+
+            if (result['success'] == true)
+            {
+                var text = "تم ترك الجواب";
+                snackbar(text,3000,"success");
+            }
+        },
+        errors: function() {
+            var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
+            snackbar(text,3000,"error");
         }
     });
 });

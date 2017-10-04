@@ -10,6 +10,7 @@
     <!-- Stylesheet -->
     <link href="{{asset('assets/styles/semantic.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/styles/style.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/styles/snackbar.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Script -->
     <script src="{{asset("assets/scripts/jquery.min.js")}}"></script>

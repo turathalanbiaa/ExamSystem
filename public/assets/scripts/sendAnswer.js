@@ -12,11 +12,23 @@ $("button[data-action='sendAnswer']").click(function ()
         type: "POST",
         url: '/answer',
         data: {questionId: questionId, answer: answer, _token:_token},
-        success: function( osm ) {
-            console.log(osm);
+        datatype: 'JSON',
+        success: function(result) {
+            if (result["success"] == false)
+            {
+                var text = "لم تقم باختيار اي الجواب";
+                snackbar(text,3000,"warning");
+            }
+
+            if (result['success'] == true)
+            {
+                var text = "تم ارسال الجواب";
+                snackbar(text,3000,"success");
+            }
         },
-        errors: function( osm ) {
-            console.log(osm);
+        errors: function() {
+            var text = "لم يتم ارسال الجواب";
+            snackbar(text,3000,"error");
         }
     });
 });
