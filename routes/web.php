@@ -23,5 +23,5 @@ Route::post("/leave" , "AnswerController@leave")->middleware('login_api_auth' , 
 Route::get("/exam/{id}" , "ExamController@display")->middleware('login_auth' , 'exam_check');
 
 Route::get("/result/{id}" , "ResultController@result")->middleware('login_auth');
-Route::get("/finish/{id}" , "ResultController@result")->middleware('login_auth');
+Route::get("/finish/{id}" , "ResultController@finish")->middleware('login_auth');
 
