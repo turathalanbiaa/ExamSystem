@@ -22,7 +22,7 @@
         @include("exam.questions")
 
         <div class="column">
-            <a href="/result/{{$exam->ID}}" class="ui big green button">انهاء الامتحان</a>
+            <a href="/finish/{{$exam->ID}}" class="ui big green button">انهاء الامتحان</a>
             <div class="md-space"></div>
         </div>
 
