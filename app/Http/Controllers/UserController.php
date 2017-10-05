@@ -13,6 +13,9 @@ class UserController
 
     public function showLogin(Request $request)
     {
+        if ($this->isLoggedIn($request))
+            return redirect('/');
+
         $user = $this->loginWithSession($request);
         if ($user)
             return view("main.main" , ["user" => $user]);
@@ -27,6 +30,9 @@ class UserController
 
     public function login(Request $request)
     {
+        if ($this->isLoggedIn($request))
+            return redirect('/');
+
         $code = Input::get("code");
         $user = User::where("Code" , $code)->first();
 
@@ -97,7 +103,7 @@ class UserController
     {
         $request->session()->forget('USER_ID');
         return
-            redirect("/")
+            redirect("/login")
                 ->withCookie(cookie("SESSION" , null , -1));
     }
 
