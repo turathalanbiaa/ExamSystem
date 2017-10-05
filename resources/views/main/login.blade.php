@@ -6,11 +6,12 @@
 
 @section("content")
     <div class="ui center aligned grid">
-        <div class="eight wide column">
+        <div class="sixteen wide column mobile eight wide column">
             <div class="lg-space"></div>
             <div class="lg-space"></div>
 
             <form class="ui login large form" method="post" action="/login">
+
                 <h3 class="ui center aligned dividing green header" style="color: #ffffff;">تسجيل الدخول</h3>
                 <div class="ui hidden divider"></div>
 
@@ -25,7 +26,7 @@
 
                 <div class="ui divider"></div>
 
-                <a href="/register" class="ui large blue button">ليس لديك رقم امتحاني</a>
+                <a href="/register" class="ui large blue button">اذا كنت تشترك بالامتحان لاول مرة اضغط هنا</a>
 
             </form>
 
