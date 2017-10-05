@@ -16,7 +16,7 @@
 
         <div class="column">
             <div class="ui segment">
-                <div class="ui list">
+                <div class="ui right aligned order list">
                     <div class="item">الامتحان يبدأ في الساعة العاشرة صباحاً.</div>
                     <div class="item">مدة الامتحان ساعتان تبدأ من حين فتح الرابط الامتحاني.</div>
                     <div class="item">يرجى الاحتفاظ بالرقم الامتحاني الذي سيظهر لك عند التسجيل للامتحانات.</div>
