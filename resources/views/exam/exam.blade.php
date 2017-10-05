@@ -12,7 +12,7 @@
             <div class="ui segment">
                 <div class="ui hidden divider"></div>
                 <div>
-                    <h2 class="ui center aligned header"><span> امتحان درس </span><span>{{$exam->Name}}</span></h2>
+                    <h2 class="ui center aligned header">{{$exam->Name}}</h2>
                     <a href="/" class="ui large blue button">رجوع</a>
                 </div>
                 <div class="ui hidden divider"></div>
