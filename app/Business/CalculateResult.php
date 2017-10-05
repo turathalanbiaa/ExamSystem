@@ -63,7 +63,7 @@ class CalculateResult
 
         for ($counter = 0 ; $counter < count($trueAndFalseQuestions) ; $counter++)
         {
-            if ($counter+1 > $this->optionCount)
+            if ($counter+1 > $this->trueAndFalseCount)
             {
                 break;
             }
@@ -77,7 +77,7 @@ class CalculateResult
 
         for ($counter = 0 ; $counter < count($optionsQuestions) ; $counter++)
         {
-            if ($counter+1 > $this->trueAndFalseCount)
+            if ($counter+1 > $this->optionCount)
             {
                 break;
             }
