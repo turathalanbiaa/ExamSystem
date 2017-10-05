@@ -17,7 +17,8 @@ $("button[data-action='sendAnswer']").click(function ()
         type: "POST",
         url: '/answer',
         data: {questionId: questionId, answer: answer, _token:_token},
-        datatype: 'JSON',
+        timeout : 8000 ,
+        datatype: 'json',
         success: function(result) {
             if (result["success"] == false)
             {
@@ -28,10 +29,13 @@ $("button[data-action='sendAnswer']").click(function ()
 
             button.removeClass("disabled loading");
         },
-        errors: function() {
+        error: function() {
             var text = "لم يتم ارسال الجواب";
             snackbar(text,3000,"error");
             checkbox.checkbox('uncheck');
+            button.removeClass("disabled loading");
+        } ,
+        complete : function() {
             button.removeClass("disabled loading");
         }
     });

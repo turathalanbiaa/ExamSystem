@@ -1,7 +1,7 @@
 <?php $i = 0; ?>
 
 <div class="column">
-    <h2 class="ui top attached center aligned black inverted header">        صح او خطأ - اجب على {{$exam->CategoryOne}} اسئلة</h2>
+    <h2 class="ui top attached center aligned black inverted header">        صح او خطأ - اجب على {{$exam->CategoryOne}} سؤال</h2>
     <div class="ui attached segment">
 
         @foreach($trueOrFalseQuestions as $question)
@@ -17,7 +17,7 @@
 <div class="ui hidden divider"></div>
 
 <div class="column">
-    <h2 class="ui top attached center aligned black inverted header">اختيارات - اجب على {{$exam->CategoryTwo}} اسئلة</h2>
+    <h2 class="ui top attached center aligned black inverted header">اختيارات - اجب على {{$exam->CategoryTwo}} سؤال</h2>
     <div class="ui attached segment">
 
         @foreach($optionsQuestions as $question)

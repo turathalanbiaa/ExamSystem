@@ -18,6 +18,7 @@ $("button[data-action='leaveQuestion']").click(function ()
         type: "POST",
         url: '/leave',
         data: {questionId: questionId, _token:_token},
+        timeout : 8000 ,
         datatype : 'json' ,
         success: function( result ) {
             if (result["success"] == false)
@@ -33,9 +34,12 @@ $("button[data-action='leaveQuestion']").click(function ()
 
             button.removeClass("disabled loading");
         },
-        errors: function() {
+        error: function() {
             var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
             snackbar(text,3000,"error");
+            button.removeClass("disabled loading");
+        } ,
+        complete : function(){
             button.removeClass("disabled loading");
         }
     });
