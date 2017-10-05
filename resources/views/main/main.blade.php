@@ -25,7 +25,7 @@
         <div class="column">
             <div class="ui fluid inverted yellow segment">
                 <a href="/logout" class="ui medium blue left floated button">تسجيل الخروج</a>
-                <div style="margin-top: 3px;" class="ui right aligned large header">رقم الامتحاني هو : {{$user->Code}}</div>
+                <div style="margin-top: 3px;" class="ui right aligned large header">الرقم الامتحاني هو : {{$user->Code}}</div>
             </div>
         </div>
 

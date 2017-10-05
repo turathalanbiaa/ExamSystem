@@ -12,7 +12,7 @@
             <div class="ui segment">
                 <div class="ui hidden divider"></div>
                 <div>
-                    <h2 class="ui center aligned header"><span>امتحان درس</span><span>{{$exam->Name}}</span></h2>
+                    <h2 class="ui center aligned header"><span> امتحان درس </span><span>{{$exam->Name}}</span></h2>
                     <a href="/" class="ui large blue button">رجوع</a>
                 </div>
                 <div class="ui hidden divider"></div>
@@ -36,6 +36,6 @@
         $('.ui.radio.checkbox').checkbox();
     </script>
     <script src="{{asset("assets/scripts/snackbar.js")}}"></script>
-    <script src="{{asset("assets/scripts/sendAnswer.js?v=2")}}"></script>
-    <script src="{{asset("assets/scripts/leaveQuestion.js?v=2")}}"></script>
+    <script src="{{asset("assets/scripts/sendAnswer.js?2")}}"></script>
+    <script src="{{asset("assets/scripts/leaveQuestion.js?2")}}"></script>
 @endsection
