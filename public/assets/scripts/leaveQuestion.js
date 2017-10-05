@@ -13,34 +13,43 @@ $("button[data-action='leaveQuestion']").click(function ()
     button.addClass("disabled loading");
 
 
+    try
+    {
+        $.ajax({
+            type: "POST",
+            url: '/leave',
+            data: {questionId: questionId, _token:_token},
+            timeout : 8000 ,
+            datatype : 'json' ,
+            success: function( result ) {
+                if (result["success"] == false)
+                {
+                    var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
+                    snackbar(text,3000,"warning");
+                }
 
-    $.ajax({
-        type: "POST",
-        url: '/leave',
-        data: {questionId: questionId, _token:_token},
-        timeout : 8000 ,
-        datatype : 'json' ,
-        success: function( result ) {
-            if (result["success"] == false)
-            {
+                if (result.success == true)
+                {
+                    checkbox.checkbox('uncheck');
+                }
+
+                button.removeClass("disabled loading");
+            },
+            error: function() {
                 var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
-                snackbar(text,3000,"warning");
+                snackbar(text,3000,"error");
+                button.removeClass("disabled loading");
+            } ,
+            complete : function(){
+                button.removeClass("disabled loading");
             }
+        });
+    }
+    catch(e)
+    {
+        var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
+        snackbar(text,3000,"error");
+        button.removeClass("disabled loading");
+    }
 
-            if (result.success == true)
-            {
-                checkbox.checkbox('uncheck');
-            }
-
-            button.removeClass("disabled loading");
-        },
-        error: function() {
-            var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
-            snackbar(text,3000,"error");
-            button.removeClass("disabled loading");
-        } ,
-        complete : function(){
-            button.removeClass("disabled loading");
-        }
-    });
 });

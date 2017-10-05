@@ -13,30 +13,42 @@ $("button[data-action='sendAnswer']").click(function ()
     var button = $(this);
     button.addClass("disabled loading");
 
-    $.ajax({
-        type: "POST",
-        url: '/answer',
-        data: {questionId: questionId, answer: answer, _token:_token},
-        timeout : 8000 ,
-        datatype: 'json',
-        success: function(result) {
-            if (result["success"] == false)
-            {
-                var text = "لم تقم باختيار اي الجواب";
-                snackbar(text,3000,"warning");
-                checkbox.checkbox('uncheck');
-            }
+    try
+    {
+        $.ajax({
+            type: "POST",
+            url: '/answer',
+            data: {questionId: questionId, answer: answer, _token:_token},
+            timeout : 8000 ,
+            datatype: 'json',
+            success: function(result) {
+                if (result["success"] == false)
+                {
+                    var text = "لم تقم باختيار اي الجواب";
+                    snackbar(text,3000,"warning");
+                    checkbox.checkbox('uncheck');
+                }
 
-            button.removeClass("disabled loading");
-        },
-        error: function() {
-            var text = "لم يتم ارسال الجواب";
-            snackbar(text,3000,"error");
-            checkbox.checkbox('uncheck');
-            button.removeClass("disabled loading");
-        } ,
-        complete : function() {
-            button.removeClass("disabled loading");
-        }
-    });
+                button.removeClass("disabled loading");
+            },
+            error: function() {
+                var text = "لم يتم ارسال الجواب";
+                snackbar(text,3000,"error");
+                checkbox.checkbox('uncheck');
+                button.removeClass("disabled loading");
+            } ,
+            complete : function() {
+                button.removeClass("disabled loading");
+            }
+        });
+    }
+    catch(e)
+    {
+        var text = "لم يتم ارسال الجواب";
+        snackbar(text,3000,"error");
+        checkbox.checkbox('uncheck');
+        button.removeClass("disabled loading");
+    }
+
+
 });
