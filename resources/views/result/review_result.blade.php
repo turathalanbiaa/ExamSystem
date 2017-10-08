@@ -20,34 +20,40 @@
 </head>
 <body>
 
-<div class="ui inverted vertical masthead segment">
-
 
     <div class="ui container">
 
         <a href="/" class="ui large blue button"> الرئيسية</a>
 
-        @foreach($answers as $answer)
+        @if(count($answer) > 0)
+            @foreach($answers as $answer)
 
-            <div class="ui right aligned fluid  card">
-                <div class="content ">
+                <div class="ui right aligned fluid  card">
+                    <div class="content ">
 
-                    <div class="meta" style="color : #BD081C">السؤال</div>
-                    <div class="description" style="color : #111111">{{$answer->Title}}</div>
-                    <p></p>
-
-
-                    <div class="meta" style="color : #BD081C">الجواب الصحيح</div>
-                    <div class="description" style="color : #111111">{{$answer->CorrectAnswer}}</div>
-
-                    <p></p>
-                    <div class="meta" style="color : #BD081C">اجابتك كانت</div>
-                    <div class="description" style="color : #111111">{{$answer->UserAnswer}}</div>
+                        <div class="meta" style="color : #BD081C">السؤال</div>
+                        <div class="description" style="color : #111111">{{$answer->Title}}</div>
+                        <p></p>
 
 
+                        <div class="meta" style="color : #BD081C">الجواب الصحيح</div>
+                        <div class="description" style="color : #111111">{{$answer->CorrectAnswer}}</div>
+
+                        <p></p>
+                        <div class="meta" style="color : #BD081C">اجابتك كانت</div>
+                        <div class="description" style="color : #111111">{{$answer->UserAnswer}}</div>
+
+
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="ui segment" >
+                <div class="ui warning message">
+                    <div class="ui large header">لا توجد اي اجابة</div>
                 </div>
             </div>
-        @endforeach
+        @endif
 
         <a href="/" class="ui large blue button">الرئيسية</a>
 
@@ -55,7 +61,6 @@
 
     <br>
 
-</div>
 
 
 <script>
