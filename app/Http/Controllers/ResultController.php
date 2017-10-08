@@ -37,6 +37,15 @@ class ResultController extends Controller
         return view('result.result' , ["examination" => $examination]);
     }
 
+    public function  userAnswers($examId)
+    {
+        $user = Input::get("currentUser");
+        $answers = Answer::getUserAnswers($user , $examId);
+
+
+        return view('result.review_result' , ["answers" => $answers]);
+
+    }
     public function finish($examId)
     {
         $user = Input::get('currentUser'); /* @var $user User */

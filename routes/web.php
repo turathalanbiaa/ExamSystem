@@ -25,3 +25,5 @@ Route::get("/exam/{id}" , "ExamController@display")->middleware('login_auth' , '
 Route::get("/result/{id}" , "ResultController@result")->middleware('login_auth');
 Route::get("/finish/{id}" , "ResultController@finish")->middleware('login_auth');
 
+Route::get("/my-answer/{id}" , "ResultController@userAnswers")->middleware('login_auth');
+
