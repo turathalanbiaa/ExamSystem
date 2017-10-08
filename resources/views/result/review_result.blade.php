@@ -21,8 +21,11 @@
 <body>
 
 
+
     <div class="ui container">
 
+        <div class="ui hidden divider"></div>
+        
         <a href="/" class="ui large blue button"> الرئيسية</a>
 
         @if(count($answers) > 0)
