@@ -25,7 +25,7 @@
 
         <a href="/" class="ui large blue button"> الرئيسية</a>
 
-        @if(count($answer) > 0)
+        @if(count($answers) > 0)
             @foreach($answers as $answer)
 
                 <div class="ui right aligned fluid  card">
@@ -59,9 +59,7 @@
 
     </div>
 
-    <br>
-
-
+    <div class="ui hidden divider"></div>
 
 <script>
 
