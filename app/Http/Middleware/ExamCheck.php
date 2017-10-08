@@ -25,7 +25,7 @@ class ExamCheck
         {
             return redirect("/")->withErrors(['EXAM_NOT_EXIST']);
         }
-        if ($exam->Status == 0)
+        if ($exam->Status == 0 || $exam->Status == 2)
         {
             return redirect("/")->withErrors(['EXAM_CLOSED']);
         }
