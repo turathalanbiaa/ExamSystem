@@ -38,7 +38,7 @@
 
 
                     <div class="ui grid ">
-                        <div class="four wide column" style="color : #0617bd"> س {{$c= $c+1}} </div>
+                        <div class="four wide column" style="color : #0617bd"> السؤال   {{$c= $c+1}} </div>
                         <div class="twelve wide column">{{$answer->Title}}</div>
 
                     </div>
