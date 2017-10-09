@@ -8,11 +8,10 @@ $("button[data-action='sendAnswer']").click(function ()
     var answer = $(this).parent().parent().find('input[name=answer-'+questionId+']:checked').val();
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
-    var checkbox = $(this).parent().parent().find(".ui.radio.checkbox");
+    var allRadio = $(this).parent().parent().find("input[type='radio']");
 
-    var button = $(this);
-    button.addClass("disabled loading");
-
+    var dimmer = $(this).parent().parent().find(".dimmer");
+    dimmer.addClass("active");
 
     $.ajax({
         type: "POST",
@@ -23,21 +22,16 @@ $("button[data-action='sendAnswer']").click(function ()
         success: function(result) {
             if (result["success"] == false)
             {
-                var text = "لم تقم باختيار اي الجواب";
-                snackbar(text,3000,"warning");
-                checkbox.checkbox('uncheck');
+                allRadio.prop('checked' , false);
+                snackbar("لم يتم ارسال الاجابة , تحقق من الاتصال بالانترنت" , 3000 , "warning");
             }
-
-            button.removeClass("disabled loading");
         },
         error: function() {
-            var text = "لم يتم ارسال الجواب";
-            snackbar(text,3000,"error");
-            checkbox.checkbox('uncheck');
-            button.removeClass("disabled loading");
+            allRadio.prop('checked' , false);
+            snackbar("لم يتم ارسال الاجابة , تحقق من الاتصال بالانترنت" , 3000 , "warning");
         } ,
         complete : function() {
-            button.removeClass("disabled loading");
+            dimmer.removeClass("active");
         }
     });
 

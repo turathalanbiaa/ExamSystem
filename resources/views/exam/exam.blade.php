@@ -36,6 +36,6 @@
         $('.ui.radio.checkbox').checkbox();
     </script>
     <script src="{{asset("assets/scripts/snackbar.js")}}"></script>
-    <script src="/assets/scripts/sendAnswer.js?v=2352352"></script>
-    <script src="/assets/scripts/leaveQuestion.js?v=23232352"></script>
+    <script src="/assets/scripts/sendAnswer.js?v=4"></script>
+    <script src="/assets/scripts/leaveQuestion.js?v=4"></script>
 @endsection
