@@ -7,12 +7,10 @@ $("button[data-action='leaveQuestion']").click(function ()
     var questionId = $(this).parent().parent().find('input[name=question_ID]:hidden').val();
     var _token = $(this).parent().parent().find('input[name=_token]:hidden').val();
 
-    var checkbox = $(this).parent().parent().find(".ui.radio.checkbox");
+    var allRadio = $(this).parent().parent().find("input[type='radio']");
 
-    var button = $(this);
-    button.addClass("disabled loading");
-
-
+    var dimmer = $(this).parent().parent().find(".dimmer");
+    dimmer.addClass("active");
 
     $.ajax({
         type: "POST",
@@ -23,24 +21,21 @@ $("button[data-action='leaveQuestion']").click(function ()
         success: function( result ) {
             if (result["success"] == false)
             {
-                var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
+                var text = "لم يتم ترك السؤال , تحقق من الاتصال بالانترنت";
                 snackbar(text,3000,"warning");
             }
 
             if (result.success == true)
             {
-                checkbox.checkbox('uncheck');
+                allRadio.prop('checked' , false);
             }
-
-            button.removeClass("disabled loading");
         },
         error: function() {
             var text = "حدثت مشكلة اثناء ترك السؤال ! اعد المحاولة مرة اخرى";
             snackbar(text,3000,"error");
-            button.removeClass("disabled loading");
         } ,
         complete : function(){
-            button.removeClass("disabled loading");
+            dimmer.removeClass("active");
         }
     });
 

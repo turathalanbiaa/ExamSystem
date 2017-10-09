@@ -6,6 +6,10 @@
 
     <div id="question_form_{{$question->QuestionID}}" class="ui form">
 
+        <div class="ui dimmer">
+            <div class="ui active large loader"></div>
+        </div>
+
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <input type="hidden" name="question_ID" value="{{$question->QuestionID}}">
 
@@ -19,7 +23,7 @@
         </div>
 
         <div class="field" style="text-align: right;">
-            <button type="submit" data-action="sendAnswer" class="ui green big button">حفظ</button>
+            <button type="submit" data-action="sendAnswer" style="display: none" class="ui green big button">حفظ</button>
             <button type="submit" data-action="leaveQuestion" class="ui red big button">ترك</button>
         </div>
 
@@ -31,9 +35,6 @@
 <script>
     $("#question_form_{{$question->QuestionID}} input[type='radio']").click(function()
     {
-        if ($(this).is(':checked'))
-        {
-            $("#question_form_{{$question->QuestionID}}").find(".ui.green.button").click();
-        }
+        $("#question_form_{{$question->QuestionID}}").find('.green.button').click();
     })
 </script>

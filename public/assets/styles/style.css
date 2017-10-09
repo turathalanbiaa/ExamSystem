@@ -81,3 +81,18 @@ body {
 .ui.attached.segment>.ui.segment {
     margin-bottom: 25px;
 }
+
+
+.radio-button
+{
+    width: 15px;
+    height: 15px;
+    margin-left: 7px;
+    line-height: normal;
+}
+
+.radio-button-label
+{
+    line-height: 30px;
+    vertical-align: super;
+}
