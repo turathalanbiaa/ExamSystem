@@ -21,48 +21,74 @@
 <body>
 
 
-
-    <div class="ui container">
-
-        <div class="ui hidden divider"></div>
-        
-        <a href="/" class="ui large blue button"> الرئيسية</a>
-
-        @if(count($answers) > 0)
-            @foreach($answers as $answer)
-
-                <div class="ui right aligned fluid  card">
-                    <div class="content ">
-
-                        <div class="meta" style="color : #BD081C">السؤال</div>
-                        <div class="description" style="color : #111111">{{$answer->Title}}</div>
-                        <p></p>
-
-
-                        <div class="meta" style="color : #BD081C">الجواب الصحيح</div>
-                        <div class="description" style="color : #111111">{{$answer->CorrectAnswer}}</div>
-
-                        <p></p>
-                        <div class="meta" style="color : #BD081C">اجابتك كانت</div>
-                        <div class="description" style="color : #111111">{{$answer->UserAnswer}}</div>
-
-
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <div class="ui segment" >
-                <div class="ui warning message">
-                    <div class="ui large header">لا توجد اي اجابة</div>
-                </div>
-            </div>
-        @endif
-
-        <a href="/" class="ui large blue button">الرئيسية</a>
-
-    </div>
+<div class="ui container">
 
     <div class="ui hidden divider"></div>
+
+    <a href="/" class="ui large blue button"> الرئيسية</a>
+
+    @if(count($answers) > 0)
+        @foreach($answers as $answer)
+
+            <div class="ui Left aligned fluid  card">
+                <div class="ui Left aligned content ">
+
+
+                    <div class="ui grid ">
+                        <div class="four wide column" style="color : #0617bd">السؤال</div>
+                        <div class="twelve wide column">{{$answer->Title}}</div>
+
+                    </div>
+                    <div class="ui divider"></div>
+                    <p></p>
+
+                    <div class="ui grid ">
+                        <div class="four wide column" style="color : #0617bd">اختيارك كان</div>
+                        <div class="twelve wide column">{{$answer->UserAnswer}}</div>
+
+                    </div>
+                    <div class="ui divider"></div>
+                    <p></p>
+                    <div class="ui grid ">
+                        <div class="four wide column" style="color : #0617bd">الاختيار الصحيح هو :</div>
+                        <div class="twelve wide column">{{$answer->CorrectAnswer}}</div>
+
+                    </div>
+
+                    <div class="ui divider"></div>
+                    <p></p>
+
+                    <div class="ui grid ">
+                        <div class="four wide column" style="color : #0617bd">نتيجتك النهائية</div>
+                        <div class="twelve wide column">
+                            @if($answer->UserAnswer == $answer->CorrectAnswer)
+                                <div class="description" style="color : #00b724">مطابقة</div>
+                                <i class="large green checkmark icon"></i>
+                            @else
+                                <div class="description" style="color : #b70006">غير مطابقة</div>
+                                <i class="large red icon close"></i>
+                            @endif
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        @endforeach
+    @else
+        <div class="ui segment">
+            <div class="ui warning message">
+                <div class="ui large header">لا توجد اي اجابة</div>
+            </div>
+        </div>
+    @endif
+
+    <a href="/" class="ui large blue button">الرئيسية</a>
+
+</div>
+
+<div class="ui hidden divider"></div>
 
 <script>
 
