@@ -44,7 +44,7 @@ class ResultController extends Controller
         {
             return redirect("/");
         }
-        
+
         $user = Input::get("currentUser");
         $answers = Answer::getUserAnswers($user , $examId);
 
