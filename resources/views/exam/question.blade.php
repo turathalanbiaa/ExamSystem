@@ -4,7 +4,7 @@
         <span>{{$question->Title}}</span>
     </h3>
 
-    <div class="ui form">
+    <div id="question_form_{{$question->QuestionID}}" class="ui form">
 
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <input type="hidden" name="question_ID" value="{{$question->QuestionID}}">
@@ -26,3 +26,14 @@
     </div>
 
 </div>
+
+
+<script>
+    $("#question_form_{{$question->QuestionID}} input[type='radio']").click(function()
+    {
+        if ($(this).is(':checked'))
+        {
+            $("#question_form_{{$question->QuestionID}}").find(".ui.green.button").click();
+        }
+    })
+</script>
