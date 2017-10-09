@@ -11,7 +11,7 @@
 
     <!-- Stylesheet -->
     <link href="{{asset('assets/styles/semantic.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('assets/styles/style.css?v=2')}}" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/style.css?version=3}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/styles/snackbar.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Script -->
