@@ -26,6 +26,9 @@
     <div class="ui hidden divider"></div>
 
     <a href="/" class="ui large blue button"> الرئيسية</a>
+   <?php
+    $c = 0;
+    ?>
 
     @if(count($answers) > 0)
         @foreach($answers as $answer)
@@ -35,7 +38,7 @@
 
 
                     <div class="ui grid ">
-                        <div class="four wide column" style="color : #0617bd">السؤال</div>
+                        <div class="four wide column" style="color : #0617bd"> س {{$c= $c+1}} </div>
                         <div class="twelve wide column">{{$answer->Title}}</div>
 
                     </div>
