@@ -39,9 +39,14 @@ class ResultController extends Controller
 
     public function  userAnswers($examId)
     {
+        $exam = Exam::find($examId);
+        if (!$exam || $exam->Status == ExamStatus::EXAM_CLOSED)
+        {
+            return redirect("/");
+        }
+        
         $user = Input::get("currentUser");
         $answers = Answer::getUserAnswers($user , $examId);
-
 
         return view('result.review_result' , ["answers" => $answers]);
 
