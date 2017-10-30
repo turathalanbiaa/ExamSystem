@@ -67,4 +67,13 @@ class ResultController extends Controller
         $exam->finish($user , $mark);
         return $this->result($examId);
     }
+
+    public function viewStudents()
+    {
+
+        $all_student = Answer::getAllStudent();
+    // dd($all_student);
+        return view("result.all-student" , ["students" => $all_student]);
+
+    }
 }

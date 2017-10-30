@@ -27,3 +27,4 @@ Route::get("/finish/{id}" , "ResultController@finish")->middleware('login_auth')
 
 Route::get("/my-answer/{id}" , "ResultController@userAnswers")->middleware('login_auth');
 
+Route::get("/all-students" , "ResultController@viewStudents");
