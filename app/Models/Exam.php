@@ -17,6 +17,7 @@ class Exam extends Model
         return $this->hasMany('App\Models\Question' , "Exam_ID" , "ID");
     }
 
+
     public function enroll(User $user)
     {
         $enrollment = new ExamEnrollment();
