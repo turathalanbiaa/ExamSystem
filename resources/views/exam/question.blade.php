@@ -31,7 +31,6 @@
 
 </div>
 
-
 <script>
     $("#question_form_{{$question->QuestionID}} input[type='radio']").click(function()
     {

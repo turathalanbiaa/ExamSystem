@@ -60,32 +60,35 @@ class CalculateResult
     private function calculate($trueAndFalseQuestions , $optionsQuestions)
     {
         $grade = 0;
+        $correctAnswers = 0;
 
         for ($counter = 0 ; $counter < count($trueAndFalseQuestions) ; $counter++)
         {
-            if ($counter+1 > $this->trueAndFalseCount)
-            {
-                break;
-            }
-
             $question = $trueAndFalseQuestions[$counter];
-            if (strcmp(trim($question->CorrectAnswer) , trim($question->UserAnswer)) == 0)
+            if (strcmp(trim($question->CorrectAnswer) , trim($question->UserAnswer)) == 0 )
             {
                 $grade = $grade + 4;
+                $correctAnswers++;
+            }
+
+            if ($correctAnswers == $this->trueAndFalseCount)
+            {
+                break;
             }
         }
 
+        $correctAnswers = 0;
         for ($counter = 0 ; $counter < count($optionsQuestions) ; $counter++)
         {
-            if ($counter+1 > $this->optionCount)
-            {
-                break;
-            }
-
             $question = $optionsQuestions[$counter];
             if (strcmp(trim($question->CorrectAnswer) , trim($question->UserAnswer)) == 0)
             {
                 $grade = $grade + 4;
+            }
+
+            if ($correctAnswers == $this->optionCount)
+            {
+                break;
             }
         }
 
