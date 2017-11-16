@@ -64,7 +64,7 @@
                     <div class="ui grid ">
                         <div class="four wide column" style="color : #0617bd">نتيجتك النهائية</div>
                         <div class="twelve wide column">
-                            @if($answer->UserAnswer == $answer->CorrectAnswer)
+                            @if(trim($answer->UserAnswer) == trim(($answer->CorrectAnswer)))
                                 <div class="description" style="color : #00b724">مطابقة</div>
                                 <i class="large green checkmark icon"></i>
                             @else
