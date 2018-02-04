@@ -92,6 +92,8 @@ class CalculateResult
             }
         }
 
+        if($grade>100)
+            $grade=100;
         return $grade;
 
     }
