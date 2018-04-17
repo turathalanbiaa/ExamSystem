@@ -58,3 +58,6 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+
+\Illuminate\Support\Facades\DB::select("SET NAMES utf8");

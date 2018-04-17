@@ -64,10 +64,9 @@ class UploadController extends Controller
         if (!is_null(Input::get("option-3")))
             array_push($options, Input::get("option-3"));
 
-
         $question = new Question();
         $question->Title = Input::get("question");
-        $question->Options = json_encode($options);
+        $question->Options = json_encode($options ,JSON_UNESCAPED_UNICODE);
         $question->Category = 2;
         $question->Exam_ID = 19;
         $question->CorrectAnswer = $options[Input::get("correctAnswer") - 1];
