@@ -33,7 +33,5 @@ Route::get("/all-students" , "ResultController@viewStudents");
 Route::get("/emad/upload-one" , "UploadController@uploadOne");
 Route::post("/emad/upload-one" , "UploadController@validateUploadOne");
 
-
-
-Route::get("/541bd8428f8c67b754dde707295cfaff/two" , "UploadController@uploadeTwo");
-Route::post("/exam/upload-one" , "UploadController@uploadeTwo");
+Route::get("/emad/upload-two" , "UploadController@uploadTwo");
+Route::post("/emad/upload-two" , "UploadController@validateUploadTwo");

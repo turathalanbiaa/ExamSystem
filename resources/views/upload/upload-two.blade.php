@@ -1,7 +1,106 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Emad
- * Date: 4/17/2018
- * Time: 10:47 AM
- */
+@extends("layout.layout")
+
+@section("title")
+    <title>الأختيارات</title>
+@endsection
+
+@section("content")
+    <div class="ui one column grid">
+
+        @if(count($errors))
+            <div class="column">
+                <div class="ui error message" id="message">
+                    <div class="ui center aligned header">
+                        @foreach($errors->all() as $error)
+                            <span>{{ $error }}</span>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if(session("Message"))
+            <div class="column">
+                <div class="ui success fadeIn animated message">
+                    <h2 style="text-align: center;">{{session("Message")}}</h2>
+                </div>
+            </div>
+        @endif
+
+        <div class="column">
+            <div class="ui segment">
+                <div class="ui green dividing header">اضافة سؤال جديد</div>
+                <div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+
+                <form class="ui big form" method="post" action="/emad/upload-two">
+                    {!! csrf_field() !!}
+                    <div class="field">
+                        <label for="question">السؤال</label>
+                        <textarea name="question" id="question" rows="5"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label>الأختيارات</label>
+                        <div class="ui segment">
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label>الأختيار الأول</label>
+                                </div>
+                                <div class="six wide field">
+                                    <input type="text" name="option-1" value="">
+                                </div>
+                            </div>
+
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label>الأختيار الثاني</label>
+                                </div>
+                                <div class="six wide field">
+                                    <input type="text" name="option-2" value="">
+                                </div>
+                            </div>
+
+                            <div class="inline fields">
+                                <div class="two wide field">
+                                    <label>الأختيار الثالث</label>
+                                </div>
+                                <div class="six wide field">
+                                    <input type="text" name="option-3" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>أختر رقم الجواب الصحيح</label>
+                        <div class="ui segment">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="correctAnswer" value="1" class="hidden">
+                                <label>الأختيار الأول</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="correctAnswer" value="2" class="hidden">
+                                <label>الأختيار الثاني</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="correctAnswer" value="3" class="hidden">
+                                <label>الأختيار الثالث</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <button type="submit" class="ui teal button">ارسال</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section("script")
+    <script>
+        $('.ui.checkbox').checkbox();
+    </script>
+@endsection

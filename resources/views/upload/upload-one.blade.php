@@ -40,18 +40,19 @@
                         <textarea name="question" id="question" rows="5"></textarea>
                     </div>
 
-                    <div class="inline fields">
+                    <div class="grouped fields">
+                        <label for="correctAnswer">أختر الجواب الصحيح</label>
                         <div class="field">
-                            <div class="ui checkbox">
-                                <label for="CorrectAnswer">صح</label>
-                                <input type="checkbox" name="CorrectAnswer"  value="صح" class="hidden">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="correctAnswer" value="صح" tabindex="0" class="hidden">
+                                <label>صح</label>
                             </div>
                         </div>
 
                         <div class="field">
-                            <div class="ui checkbox">
-                                <label for="CorrectAnswer">خطأ</label>
-                                <input type="checkbox" name="CorrectAnswer"  value="خطأ" class="hidden">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="correctAnswer" value="خطأ" tabindex="0" class="hidden">
+                                <label>خطأ</label>
                             </div>
                         </div>
                     </div>
