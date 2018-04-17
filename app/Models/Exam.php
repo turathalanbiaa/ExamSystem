@@ -57,8 +57,9 @@ class Exam extends Model
     public static function getAllExamsForUser(User $user)
     {
         $SQL = "SELECT exam.ID , Name , Date , exam.Status AS ExamStatus , Mark , enrollment.Status AS FinishState 
-                FROM exam LEFT JOIN enrollment ON enrollment.Exam_ID = exam.ID AND User_ID = ? ORDER BY exam.ID DESC";
-        $result = DB::select($SQL , [$user->ID]);
+                FROM exam LEFT JOIN enrollment ON enrollment.Exam_ID = exam.ID AND User_ID = ? WHERE exam.Date > ? ORDER BY exam.ID DESC";
+        $date = "2018-04-17";
+        $result = DB::select($SQL , [$user->ID, $date]);
         return $result;
     }
 

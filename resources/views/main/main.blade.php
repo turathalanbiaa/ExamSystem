@@ -16,7 +16,8 @@
 
         <div class="column">
             <div class="ui right aligned segment">
-                <div class="ui right aligned list" style="font-size: 16px;">
+                <div class="ui green dividing header">بعض الملاحضات الهامة</div>
+                <div class="ui large list">
                     <div class="item">الامتحان يبدأ في الساعة التاسعة صباحاً.</div>
                     <div class="item">مدة الامتحان ساعتان تبدأ من حين فتح الرابط الامتحاني.</div>
                     <div class="item">يرجى الاحتفاظ بالرقم الامتحاني الذي سيظهر لك عند التسجيل للامتحانات.</div>
@@ -43,24 +44,43 @@
         </div>
 
         <div class="column">
-            <table class="ui right aligned large celled table">
-                <thead>
-                <tr>
-                    <th>اسم الامتحان</th>
-                    <th>تاريخ الامتحان</th>
-                    <th>الحالة</th>
-                </tr>
-                </thead>
-                <tbody>
+            @if(count($exams) > 0)
+                <table class="ui right aligned large celled table">
+                    <thead>
+                    <tr>
+                        <th>اسم الامتحان</th>
+                        <th>تاريخ الامتحان</th>
+                        <th>الحالة</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                @foreach($exams as $exam)
+                    @foreach($exams as $exam)
 
-                    @include("main.exam_row" , ["exam" => $exam])
+                        @include("main.exam_row" , ["exam" => $exam])
 
-                @endforeach
+                    @endforeach
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            @else
+                <div class="ui segment">
+                    <div class="ui info massive message">
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui center aligned header">سيتم قريباً فتح الامتحانات ....</div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                    </div>
+                </div>
+            @endif
+
         </div>
     </div>
 @endsection
