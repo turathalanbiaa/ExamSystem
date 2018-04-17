@@ -53,7 +53,7 @@ class AnswerController
         $answer = Answer::where("Question_ID" , $questionId)->where("User_ID" , $user->ID)->first();
         if (!$answer)
         {
-            return ["success" => false , "CODE" => "NO_QUESTION"];
+            return ["success" => true , "CODE" => "NO_QUESTION"];
         }
 
         $success = $answer->delete();
