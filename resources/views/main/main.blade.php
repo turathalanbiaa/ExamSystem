@@ -18,7 +18,7 @@
             <div class="ui right aligned segment">
                 <div class="ui green dividing header">بعض الملاحضات الهامة</div>
                 <div class="ui large list">
-                    <div class="item">الامتحان يبدأ في الساعة التاسعة صباحاً.</div>
+                    <div class="item">الامتحان يبدأ في الساعة العاشرة صباحاً.</div>
                     <div class="item">مدة الامتحان ساعتان تبدأ من حين فتح الرابط الامتحاني.</div>
                     <div class="item">يرجى الاحتفاظ بالرقم الامتحاني الذي سيظهر لك عند التسجيل للامتحانات.</div>
                     <div class="item">يغلق الامتحان في اليوم التالي عند الساعة التاسعة صباحاً.</div>

@@ -33,8 +33,23 @@
                 <div class="ui hidden divider"></div>
                 <div class="ui hidden divider"></div>
 
-                <form class="ui big form" method="post" action="/emad/upload-two">
+                <form class="ui big form" method="post" action="/aa8363d57c99e7f220c94dea8192dd8c/upload-two">
                     {!! csrf_field() !!}
+
+                    <div class="field">
+                        <label>أختر الامتحان</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="examId" value="@if(isset($_GET["examId"])){{$_GET["examId"]}}@endif">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">أختر الامتحان</div>
+                            <div class="menu">
+                                @foreach($exams as $exam)
+                                    <div class="item" data-value="{{$exam->ID}}">{{$exam->Name}}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="field">
                         <label for="question">السؤال</label>
                         <textarea name="question" id="question" rows="5"></textarea>
@@ -102,5 +117,6 @@
 @section("script")
     <script>
         $('.ui.checkbox').checkbox();
+        $('.ui.dropdown').dropdown();
     </script>
 @endsection

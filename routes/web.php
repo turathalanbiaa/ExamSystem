@@ -30,8 +30,8 @@ Route::get("/my-answer/{id}" , "ResultController@userAnswers")->middleware('logi
 Route::get("/all-students" , "ResultController@viewStudents");
 
 
-Route::get("/emad/upload-one" , "UploadController@uploadOne");
-Route::post("/emad/upload-one" , "UploadController@validateUploadOne");
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/upload-one" , "UploadController@uploadOne");
+Route::post("/aa8363d57c99e7f220c94dea8192dd8c/upload-one" , "UploadController@validateUploadOne");
 
-Route::get("/emad/upload-two" , "UploadController@uploadTwo");
-Route::post("/emad/upload-two" , "UploadController@validateUploadTwo");
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/upload-two" , "UploadController@uploadTwo");
+Route::post("/aa8363d57c99e7f220c94dea8192dd8c/upload-two" , "UploadController@validateUploadTwo");
