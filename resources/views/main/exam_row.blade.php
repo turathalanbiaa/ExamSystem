@@ -5,9 +5,7 @@
         @if($exam->FinishState == \App\Enums\FinishStatus::FINISH)
             درجتك هي
             <div class="ui large blue inverted label">{{$exam->Mark}}</div>
-            @if($exam->ExamStatus == \App\Enums\ExamStatus::EXAM_END)
-                <a href="/my-answer/{{$exam->ID}}" class="ui green large button " style="margin: 0;">عرض الاجوبة</a>
-            @endif
+
         @elseif($exam->ExamStatus == \App\Enums\ExamStatus::EXAM_CLOSED)
             <a class="ui grey disabled big  fluid button " style="margin: 0;">الامتحان مغلق</a>
         @elseif($exam->ExamStatus == \App\Enums\ExamStatus::EXAM_END && $exam->FinishState === null)
