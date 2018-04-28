@@ -35,3 +35,12 @@ Route::post("/aa8363d57c99e7f220c94dea8192dd8c/upload-one" , "UploadController@v
 
 Route::get("/aa8363d57c99e7f220c94dea8192dd8c/upload-two" , "UploadController@uploadTwo");
 Route::post("/aa8363d57c99e7f220c94dea8192dd8c/upload-two" , "UploadController@validateUploadTwo");
+
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/all-exams" , "ResultController@allExam");
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/statistics/{exam_id}" , "ResultController@statistics");
+
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/status" , "ResultController@examStatus");
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/all-examed-student" , "ResultController@viewExamedStudent");
+
+
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/show-answers" , "ResultController@showAnswers");
