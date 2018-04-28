@@ -1,10 +1,10 @@
 @extends('result.CPmaster')
 @section('result')
 
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment" style="padding: 100px; height: 1500px">
         <h2> احصائيات امتحان : {{$exam->Name}}</h2>
         <br>
-        <div class="ui text container">
+        <div class="ui text container" style="padding: 100px">
 
 
             <a href="/aa8363d57c99e7f220c94dea8192dd8c/all-examed-student/?examID={{$exam->ID}}&type=0"
