@@ -17,6 +17,9 @@
         @else
             @if($exam->FinishState === null)
                 <button class="ui grey disabled fluid button" style="margin: 0;">لم تمتحن</button>
+            @elseif($exam->FinishState == \App\Enums\FinishStatus::NOT_FINISH)
+                <a href="/finish/{{$exam->ID}}" class="ui green big button " style="margin: 0;">حساب الدرجة</a>
+                <a href="/my-answer/{{$exam->ID}}" class="ui green big button " style="margin: 0;">عرض الاجوبة</a>
             @else
                 <span>درجتك هي</span>
                 <div class="ui large blue inverted label">{{$exam->Mark}}</div>
