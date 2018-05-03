@@ -164,5 +164,30 @@ class ResultController extends Controller
     }
 
 
+    public function solveProblem($examID , $Question_ID)
+    {
+
+        $SQL = "SELECT * FROM answer WHERE Question_ID = ?";
+
+        $users = DB::select($SQL , [$Question_ID]);
+
+        $exam = Exam::find($examID);
+
+        foreach ($users as $user_answer)
+        {
+
+            $user = User::find($user_answer->User_ID);
+
+            $answers = Answer::getUserAnswers($user, $exam->ID);
+
+            $resultCalculator = new CalculateResult($answers, $exam->CategoryTwo, $exam->CategoryOne);
+            $mark = $resultCalculator->getMyResult();
+
+            $exam->finish($user, $mark);
+        }
+
+
+        dd("ok");
+    }
 
 }

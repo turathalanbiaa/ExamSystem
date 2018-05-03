@@ -44,3 +44,4 @@ Route::get("/aa8363d57c99e7f220c94dea8192dd8c/all-examed-student" , "ResultContr
 
 
 Route::get("/aa8363d57c99e7f220c94dea8192dd8c/show-answers" , "ResultController@showAnswers");
+Route::get("/aa8363d57c99e7f220c94dea8192dd8c/solve/{examID}/{Question_ID}" , "ResultController@solveProblem");
